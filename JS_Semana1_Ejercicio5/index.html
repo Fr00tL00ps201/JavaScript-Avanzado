@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h1>Masa corporal</h1>
+        <div class="tarjeta-formulario">
+            <table>
+                <tr>
+                    <td class="etiqueta">Ingrese estatura en mts</td>
+                    <td><input type="number" id="estaturaMts" step="0.01" placeholder="Ej: 1.70"></td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Ingrese peso en kg</td>
+                    <td><input type="number" id="pesoKg" placeholder="Ej: 65"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button onclick="calcular()">procesar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="resultado" readonly></textarea>
+                    </td>
+                    <td id="contenedor-imagen">
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

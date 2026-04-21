@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h1>Área de triángulos</h1>
+        <div class="tarjeta">
+            <table>
+                <tr>
+                    <td class="etiqueta">Ingrese lado 1</td>
+                    <td><input type="number" id="lado1"></td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Ingrese lado 2</td>
+                    <td><input type="number" id="lado2"></td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Ingrese lado 3</td>
+                    <td><input type="number" id="lado3"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button onclick="calcular()">procesar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="resultado" readonly></textarea>
+                    </td>
+                    <td id="contenedor-imagen">
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

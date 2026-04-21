@@ -1,0 +1,68 @@
+body {
+    background-color: #d2b48c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.tarjeta {
+    background-color: #c2f0b4;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.4);
+    border: 1px solid #7eb67e;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #7eb67e;
+    background-color: #c2f0b4;
+    vertical-align: top;
+}
+
+.etiqueta {
+    font-weight: bold;
+}
+
+input, select {
+    width: 200px;
+    padding: 5px;
+}
+
+button {
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+#resultado {
+    width: 250px;
+    height: 120px;
+    resize: none;
+    padding: 10px;
+}
+
+#contenedor-imagen {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #7eb67e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+#contenedor-imagen img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}

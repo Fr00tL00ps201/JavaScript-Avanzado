@@ -1,0 +1,63 @@
+body {
+    background-color: #d2b48c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.tarjeta-formulario {
+    background-color: #c2f0b4;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.4);
+    border: 1px solid #7eb67e;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #7eb67e;
+    background-color: #c2f0b4;
+    vertical-align: top;
+}
+
+.etiqueta {
+    font-weight: bold;
+}
+
+input, select {
+    width: 200px;
+    padding: 5px;
+}
+
+button {
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+#contenedor-imagen {
+    width: 150px;    
+    height: 150px; 
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f0fff0;
+    overflow: hidden;  
+}
+
+#resultado {
+    width: 250px;
+    height: 140px;
+    resize: none;
+    font-family: monospace;
+    padding: 10px;
+    border: 1px solid #999;
+}

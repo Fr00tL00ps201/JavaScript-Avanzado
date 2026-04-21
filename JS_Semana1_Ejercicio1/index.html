@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Datos Personales</h1>
+        <div class="tarjeta">
+            <table border="1">
+                <tr>
+                    <td>Ingrese nombre</td>
+                    <td><input type="text" id="nombre" value=""></td>
+                </tr>
+                <tr>
+                    <td>Ingrese año de nacimiento</td>
+                    <td><input type="number" id="anio" value=""></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button onclick="procesar()">procesar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="contenedor-imagen">
+
+                    </td>
+                    <td>
+                        <textarea id="resultado" readonly></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

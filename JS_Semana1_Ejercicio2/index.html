@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h1>Boleta de notas</h1>
+        <div class="tarjeta">
+            <table>
+                <tr>
+                    <td class="etiqueta">Curso</td>
+                    <td>
+                        <select id="curso">
+                            <option value="Algoritmo">Algoritmo</option>
+                            <option value="Programación">Programación</option>
+                            <option value="Desarrollo web">Desarrollo web</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Ingrese Práctica 1</td>
+                    <td><input type="number" id="nota1" placeholder="Nota de 0 a 20" min="0" max="20"></td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Ingrese Práctica 2</td>
+                    <td><input type="number" id="nota2" placeholder="Nota de 0 a 20" min="0" max="20"></td>
+                </tr>
+                <tr>
+                    <td class="etiqueta">Ingrese Práctica 3</td>
+                    <td><input type="number" id="nota3" placeholder="Nota de 0 a 20" min="0" max="20"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button onclick="calcular()">procesar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="contenedor-imagen">
+
+                    </td>
+                    <td>
+                        <textarea id="resultado" readonly placeholder="Los resultados aparecerán aquí..."></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
