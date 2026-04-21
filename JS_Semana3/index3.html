@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container { display: flex; gap: 20px; font-family: sans-serif; }
+        .inputs, .results { border: 1px solid black; padding: 15px; }
+        .row { margin-bottom: 10px; }
+        input { width: 50px; }
+        #txtVector { width: 200px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inputs">
+            <h4>Lados de triangulo rectángulo</h4>
+            <div class="row">
+                Base <input type="number" id="base"> 
+                altura <input type="number" id="altura">
+            </div>
+            <hr>
+            <h4>Area de cualquier triangulo</h4>
+            <div class="row">
+                Lado 1 <input type="number" id="l1">
+                Lado 2 <input type="number" id="l2">
+                Lado 3 <input type="number" id="l3">
+            </div>
+            <hr>
+            <h4>Ingrese Numeros Separados por comas</h4>
+            <input type="text" id="txtVector" placeholder="Ej: 10,20,30">
+            <button onclick="procesar()">Enviar</button>
+        </div>
+
+        <div class="results">
+            <h4>Resultados:</h4>
+            <p>Hipotenusa: <b id="resHipo"></b></p>
+            <p>Area del Tri: <b id="resArea"></b></p>
+            <p>Valor Promedio: <b id="resProm"></b></p>
+            <p>Valor Maximo: <b id="resMax"></b></p>
+        </div>
+    </div>
+
+    <script src="libreria.js"></script>
+
+    <script>
+        function procesar() {
+            // 1. Obtener valores de hipotenusa
+            const b = parseFloat(document.getElementById('base').value) || 0;
+            const h = parseFloat(document.getElementById('altura').value) || 0;
+            document.getElementById('resHipo').innerText = hipotenusa(h, b).toFixed(2);
+
+            // 2. Obtener valores de triángulo general
+            const lado1 = parseFloat(document.getElementById('l1').value) || 0;
+            const lado2 = parseFloat(document.getElementById('l2').value) || 0;
+            const lado3 = parseFloat(document.getElementById('l3').value) || 0;
+            const areaTri = ATRIG(lado1, lado2, lado3);
+            document.getElementById('resArea').innerText = areaTri === -1 ? "No es triángulo" : areaTri.toFixed(2);
+
+            // 3. Procesar el vector
+            const strVector = document.getElementById('txtVector').value;
+            // Convertir string "1,2,3" en array [1,2,3]
+            const arrayNums = strVector.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+
+            document.getElementById('resProm').innerText = calcularPromedio(arrayNums).toFixed(2);
+            document.getElementById('resMax').innerText = calcularMaximo(arrayNums);
+        }
+    </script>
+</body>
+</html>

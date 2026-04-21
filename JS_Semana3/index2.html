@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box { border: 1px solid black; padding: 20px; width: 450px; margin-bottom: 20px; font-family: Arial; }
+        .row { margin-bottom: 10px; display: flex; justify-content: space-between; }
+        input[type="text"], input[type="date"] { width: 200px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Datos Personales</h3>
+        <div class="row">Apellidos: <input type="text" id="apellidos"></div>
+        <div class="row">Nombre: <input type="text" id="nombre"></div>
+        <div class="row">Fecha de Nacimiento: <input type="date" id="fecha"></div>
+        <div class="row">
+            Sexo: 
+            <input type="radio" name="sexo" value="M" id="m"> Masculino
+            <input type="radio" name="sexo" value="F" id="f"> Femenino
+        </div>
+        <button onclick="generarAFP()">Enviar</button>
+    </div>
+
+    <div class="box" id="salida" style="display:none;">
+        <h3>Datos de Salida</h3>
+        <div class="row">Apellido y Nombre: <input type="text" id="outNombre" readonly></div>
+        <div class="row">Su código es: <input type="text" id="outCodigo" readonly></div>
+        <a href="#" onclick="location.reload()"><< Regresar</a>
+    </div>
+
+    <script>
+        function generarAFP() {
+            // 1. Capturar valores
+            const apellidos = document.getElementById('apellidos').value.trim().toUpperCase();
+            const nombre = document.getElementById('nombre').value.trim().toUpperCase();
+            const fechaVal = document.getElementById('fecha').value; // Formato YYYY-MM-DD
+            const sexos = document.getElementsByName('sexo');
+            
+            let sexo = "";
+            for (let s of sexos) { if (s.checked) sexo = s.value; }
+
+            // Validación básica
+            if (!apellidos || !nombre || !fechaVal || !sexo) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // 2. Procesar la Fecha (Convertir YYYY-MM-DD a YYMMDD)
+            const partes = fechaVal.split("-"); // [0]=Año, [1]=Mes, [2]=Día
+            const yy = partes[0].substring(2);  // "1983" -> "83"
+            const mm = partes[1];
+            const dd = partes[2];
+            const bloqueFecha = yy + mm + dd;
+
+            // 3. Obtener caracteres 1 y 4 (con lógica de "letra no vacía")
+            function getChars(texto) {
+                let char1 = texto.charAt(0);
+                // Si el texto tiene menos de 4 caracteres, tomamos el último disponible
+                let char4 = (texto.length >= 4) ? texto.charAt(3) : texto.charAt(texto.length - 1);
+                return char1 + char4;
+            }
+
+            const codApell = getChars(apellidos.replace(/\s/g, '')); // Eliminamos espacios para contar letras
+            const codNom = getChars(nombre.replace(/\s/g, ''));
+
+            // 4. Construir Código Final
+            const codigoGenerado = bloqueFecha + sexo + codApell + codNom;
+
+            // 5. Mostrar resultados
+            document.getElementById('outNombre').value = `${apellidos}, ${nombre}`;
+            document.getElementById('outCodigo').value = codigoGenerado;
+            document.getElementById('salida').style.display = "block";
+        }
+    </script>
+</body>
+</html>

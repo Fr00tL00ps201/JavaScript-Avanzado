@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="border: 1px solid black; padding: 20px; width: 400px;">
+        <h3>Generación de los Números de RUC</h3>
+        
+        <label>Ingrese Libreta Electoral:</label>
+        <input type="text" id="libreta" maxlength="8"><br><br>
+
+        <label>Tipo de Persona:</label><br>
+        <input type="radio" name="tipo" value="12" id="juridica"> Jurídica
+        <input type="radio" name="tipo" value="10" id="natural"> Natural<br><br>
+
+        <label>RUC GENERADO:</label>
+        <input type="text" id="rucResultado" readonly><br><br>
+
+        <button onclick="generarRUC()">Enviar</button>
+    </div>
+
+    <script>
+        function generarRUC() {
+            const libreta = document.getElementById('libreta').value;
+            const tipos = document.getElementsByName('tipo');
+            let prefijo = "";
+
+            if (libreta.length !== 8 || isNaN(libreta)) {
+                alert("Por favor, ingrese una libreta electoral válida de 8 dígitos.");
+                return;
+            }
+
+            for (const tipo of tipos) {
+                if (tipo.checked) {
+                    prefijo = tipo.value;
+                    break;
+                }
+            }
+
+            if (prefijo === "") {
+                alert("Seleccione un tipo de persona.");
+                return;
+            }
+
+            let suma = 0;
+            for (let i = 0; i < libreta.length; i++) {
+                suma += parseInt(libreta[i]) * (i + 1);
+            }
+
+            const residuo = suma % 9;
+
+            const rucFinal = prefijo + libreta + residuo;
+
+            document.getElementById('rucResultado').value = rucFinal;
+        }
+    </script>
+</body>
+</html>
