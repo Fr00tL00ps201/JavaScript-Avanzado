@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="survey-container">
+        <h3>¿QUÉ LE PARECIÓ LA PELÍCULA? ELEGIR:</h3>
+        <input type="radio" name="rating" value="buen" id="r1"> <label for="r1">Buen</label><br>
+        <input type="radio" name="rating" value="regular" id="r2"> <label for="r2">Regular</label><br>
+        <input type="radio" name="rating" value="mala" id="r3"> <label for="r3">Mala</label><br><br>
+
+        <button onclick="registrarVoto()">Enviar</button>
+        <button onclick="mostrarPorcentajes()">Ver porcentajes</button>
+    </div>
+
+    <div id="resultados" style="border: 1px solid #000; padding: 10px; margin-top: 10px; width: 200px;">
+        <p>Porcentajes</p>
+        <p id="p-mala">Mala => 0%</p>
+        <p id="p-bueno">Bueno => 0%</p>
+        <p id="p-regular">Regular => 0%</p>
+    </div>
+
+    <script>
+        const votos = { buen: 0, regular: 0, mala: 0, total: 0 };
+
+        const registrarVoto = () => {
+            const seleccion = document.querySelector('input[name="rating"]:checked');
+            if (seleccion) {
+                votos[seleccion.value]++;
+                votos.total++;
+                alert("¡Voto registrado!");
+                seleccion.checked = false;
+            } else {
+                alert("Por favor, selecciona una opción");
+            }
+        };
+
+        const mostrarPorcentajes = () => {
+            if (votos.total === 0) 
+            return alert("Aún no hay votos");
+
+            const calcular = (tipo) => ((votos[tipo] / votos.total) * 100).toFixed(2);
+
+            document.getElementById('p-mala').innerText = `Mala => ${calcular('mala')}%`;
+            document.getElementById('p-bueno').innerText = `Bueno => ${calcular('buen')}%`;
+            document.getElementById('p-regular').innerText = `Regular => ${calcular('regular')}%`;
+        };
+    </script>
+</body>
+</html>

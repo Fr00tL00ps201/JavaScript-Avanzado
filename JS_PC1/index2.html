@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="numeroInput" placeholder="Ingresa un número">
+        <button id="btnCalcular">Calcular Suma</button>
+        <p>Resultado: <span id="resultadoSuma"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('btnCalcular').addEventListener('click', () => {
+            const valor = document.getElementById('numeroInput').value;
+            const display = document.getElementById('resultadoSuma');
+
+            if (!valor) return display.innerText = "0";
+            const suma = valor
+            .split('')
+            .filter(char => !isNaN(char))
+            .reduce((acumulador, actual) => acumulador + Number(actual), 0);
+
+            display.innerText = suma;
+        });
+    </script>
+</body>
+</html>
